@@ -2,166 +2,109 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Yash Tripathi - Full Stack Developer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yash Tripathi | Full Stack Developer</title>
   <style>
-    :root {
-      --primary: #1d3557;
-      --accent: #e63946;
-      --bg: #f8f9fa;
-      --text: #333;
-      --white: #fff;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
+    /* Reset and base styles */
     body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #f8f9fa, #e9ecef); /* Soft gradient background */
+      color: #212529;
     }
 
+    /* Header styles with animation */
     header {
-      background: linear-gradient(135deg, var(--primary), #457b9d);
-      color: var(--white);
-      padding: 100px 20px;
+      background: linear-gradient(to right, #343a40, #495057);
+      color: white;
+      padding: 2rem 1rem;
       text-align: center;
+      animation: fadeInDown 1s ease-in-out;
     }
 
-    header h1 {
-      font-size: 3.5rem;
-      margin-bottom: 10px;
-      animation: fadeDown 1s ease-out;
-    }
-
-    header p {
-      font-size: 1.2rem;
-      opacity: 0.9;
-      animation: fadeUp 1.2s ease-out;
-    }
-
+    /* Navigation styles */
     nav {
-      background: var(--white);
-      padding: 15px;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      background: #495057;
+      padding: 0.8rem 0;
     }
 
     nav a {
-      color: var(--primary);
-      margin: 0 20px;
+      color: white;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 500;
       transition: color 0.3s ease;
     }
 
     nav a:hover {
-      color: var(--accent);
+      color: #ffc107; /* Highlight color on hover */
     }
 
-    .container {
-      max-width: 1000px;
-      margin: 50px auto;
-      padding: 0 20px;
-    }
-
+    /* Section styling */
     section {
-      margin-bottom: 60px;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      margin-top: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: all 0.5s ease;
     }
 
     h2 {
-      font-size: 2rem;
-      color: var(--primary);
-      margin-bottom: 20px;
-      position: relative;
-    }
-
-    h2::after {
-      content: "";
-      position: absolute;
-      width: 60px;
-      height: 4px;
-      background: var(--accent);
-      left: 0;
-      bottom: -10px;
+      color: #495057;
+      border-bottom: 2px solid #dee2e6;
+      padding-bottom: 0.5rem;
     }
 
     ul {
-      list-style: none;
-      padding-left: 0;
+      padding-left: 1.2rem;
     }
 
-    ul li {
-      margin-bottom: 10px;
-      font-size: 1.1rem;
+    .projects a {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #007bff;
+      text-decoration: none;
+      transition: color 0.3s;
     }
 
-    .contact-icons a {
-      font-size: 1.6rem;
-      margin-right: 20px;
-      color: var(--primary);
-      transition: color 0.3s ease;
+    .projects a:hover {
+      color: #0056b3;
     }
 
-    .contact-icons a:hover {
-      color: var(--accent);
-    }
-
+    /* Footer styling */
     footer {
-      background: var(--primary);
-      color: var(--white);
       text-align: center;
-      padding: 20px;
-      font-size: 1rem;
+      padding: 1rem;
+      background: #dee2e6;
+      color: #495057;
     }
 
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media screen and (max-width: 768px) {
-      header h1 {
-        font-size: 2.5rem;
+    /* Animation keyframe for fade-in effect */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
       }
-      nav a {
-        margin: 0 10px;
-        font-size: 1rem;
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
   </style>
 </head>
 <body>
-
+  <!-- Header with name and job title -->
   <header>
     <h1>Yash Tripathi</h1>
-    <p>Full Stack Developer @ Team Computers</p>
+    <p>Full Stack Developer | React.js, Node.js, Magento, MERN</p>
   </header>
 
+  <!-- Navigation bar -->
   <nav>
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
@@ -169,64 +112,76 @@
     <a href="#contact">Contact</a>
   </nav>
 
-  <div class="container">
+  <!-- About section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I am a Full Stack Developer with over 6 years of experience building responsive and scalable web applications.
+      I specialize in the MERN stack, Magento e-commerce, and creating digital platforms for CSR and enterprise needs.
+    </p>
+  </section>
 
-    <section id="about">
-      <h2>About Me</h2>
-      <p>Hi! I'm Yash, a passionate full stack developer skilled in building scalable web applications. I specialize in modern JS frameworks and love working on real-world software solutions.</p>
-    </section>
+  <!-- Skills section -->
+  <section id="skills">
+    <h2>Technical Skills</h2>
+    <ul>
+      <li>Frontend: React.js, HTML5, CSS3, JavaScript</li>
+      <li>Backend: Node.js, Express.js</li>
+      <li>E-commerce: Magento</li>
+      <li>Database: MongoDB, MySQL</li>
+      <li>Tools: Git, REST APIs, Agile, XML</li>
+    </ul>
+  </section>
 
-    <section id="skills">
-      <h2>Skills</h2>
-      <ul>
-        <li>HTML, CSS, JavaScript (ES6+)</li>
-        <li>React.js, Angular, Vue.js</li>
-        <li>Node.js, Express.js</li>
-        <li>Python, Django, Flask</li>
-        <li>MongoDB, MySQL</li>
-        <li>REST APIs, GraphQL</li>
-        <li>Git, GitHub, CI/CD</li>
-      </ul>
-    </section>
+  <!-- Projects section -->
+  <section id="projects" class="projects">
+    <h2>Highlighted Projects</h2>
+    <a href="https://ecom.teamcomputers.com/samadhanmukti#/login" target="_blank">Samadhan Mukti – Prison Management System</a>
+    <a href="https://ecom.teamcomputers.com/paani" target="_blank">Paani – Water Management Portal</a>
+    <a href="https://ecom.teamcomputers.com/plantwatchpro" target="_blank">PlantWatch Pro – Plant Lifecycle Tracker</a>
+    <a href="https://shop.teamcomputers.com/" target="_blank">Apple Store – Internal E-commerce Platform</a>
+    <a href="https://intranet.teamcomputers.com/compliance/" target="_blank">Compliance Portal – Policy & Audit Tool</a>
+  </section>
 
-    <section id="projects">
-      <h2>Projects</h2>
-      <ul>
-        <li><strong>E-commerce App:</strong> MERN stack, payment integration, and user auth</li>
-        <li><strong>Portfolio Website:</strong> Modern responsive portfolio using HTML/CSS/JS</li>
-        <li><strong>Task Manager:</strong> Django app for team task tracking and collaboration</li>
-      </ul>
-    </section>
+  <!-- Contact section -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: yashtripathi.in@gmail.com</p>
+    <p>Phone: +91 7408990353</p>
+    <p>Location: Noida, Uttar Pradesh</p>
+    <p>LinkedIn: www.linkedin.com/in/yashtripathi-dev</p>
+  </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Let's connect!</p>
-      <div class="contact-icons">
-        <a href="mailto:yashtripathi.in@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-        <a href="https://www.linkedin.com/in/theyashtripathi" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      </div>
-    </section>
-
-  </div>
-
+  <!-- Footer section -->
   <footer>
     &copy; 2025 Yash Tripathi. All rights reserved.
   </footer>
 
   <script>
-    // Fade in sections on scroll
+    // Select all sections for animation
     const sections = document.querySelectorAll("section");
-    const revealOnScroll = () => {
-      sections.forEach(sec => {
-        const top = sec.getBoundingClientRect().top;
-        if (top < window.innerHeight - 100) {
-          sec.classList.add("visible");
-        }
-      });
-    };
-    window.addEventListener("scroll", revealOnScroll);
-    window.addEventListener("load", revealOnScroll);
-  </script>
 
+    // Set the threshold for intersection observer
+    const options = {
+      threshold: 0.1
+    };
+
+    // Create intersection observer to animate sections when they come into view
+    const observer = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.style.opacity = 1;
+        entry.target.style.transform = "translateY(0)";
+        observer.unobserve(entry.target); // Stop observing once it's visible
+      });
+    }, options);
+
+    // Apply animation effect to each section
+    sections.forEach(section => {
+      section.style.opacity = 0; // Hide initially
+      section.style.transform = "translateY(40px)"; // Slide-up effect
+      observer.observe(section); // Start observing
+    });
+  </script>
 </body>
 </html>
