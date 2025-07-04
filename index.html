@@ -2,18 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Yash Tripathi | Full Stack Developer</title>
   <style>
-    /* Reset and base styles */
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to right, #f8f9fa, #e9ecef); /* Soft gradient background */
+      background: linear-gradient(to right, #f8f9fa, #e9ecef);
       color: #212529;
+      overflow-x: hidden;
+      position: relative;
     }
 
-    /* Header styles with animation */
+    canvas.ripple-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    header, nav, section, footer {
+      position: relative;
+      z-index: 1;
+    }
+
     header {
       background: linear-gradient(to right, #343a40, #495057);
       color: white;
@@ -22,7 +35,6 @@
       animation: fadeInDown 1s ease-in-out;
     }
 
-    /* Navigation styles */
     nav {
       display: flex;
       justify-content: center;
@@ -39,10 +51,9 @@
     }
 
     nav a:hover {
-      color: #ffc107; /* Highlight color on hover */
+      color: #ffc107;
     }
 
-    /* Section styling */
     section {
       padding: 2rem;
       max-width: 900px;
@@ -76,7 +87,6 @@
       color: #0056b3;
     }
 
-    /* Footer styling */
     footer {
       text-align: center;
       padding: 1rem;
@@ -84,7 +94,6 @@
       color: #495057;
     }
 
-    /* Animation keyframe for fade-in effect */
     @keyframes fadeInDown {
       from {
         opacity: 0;
@@ -98,13 +107,13 @@
   </style>
 </head>
 <body>
-  <!-- Header with name and job title -->
+  <canvas class="ripple-canvas"></canvas>
+
   <header>
     <h1>Yash Tripathi</h1>
     <p>Full Stack Developer | React.js, Node.js, Magento, MERN</p>
   </header>
 
-  <!-- Navigation bar -->
   <nav>
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
@@ -112,7 +121,6 @@
     <a href="#contact">Contact</a>
   </nav>
 
-  <!-- About section -->
   <section id="about">
     <h2>About Me</h2>
     <p>
@@ -121,7 +129,6 @@
     </p>
   </section>
 
-  <!-- Skills section -->
   <section id="skills">
     <h2>Technical Skills</h2>
     <ul>
@@ -133,7 +140,6 @@
     </ul>
   </section>
 
-  <!-- Projects section -->
   <section id="projects" class="projects">
     <h2>Highlighted Projects</h2>
     <a href="https://ecom.teamcomputers.com/samadhanmukti#/login" target="_blank">Samadhan Mukti – Prison Management System</a>
@@ -143,7 +149,6 @@
     <a href="https://intranet.teamcomputers.com/compliance/" target="_blank">Compliance Portal – Policy & Audit Tool</a>
   </section>
 
-  <!-- Contact section -->
   <section id="contact">
     <h2>Contact</h2>
     <p>Email: yashtripathi.in@gmail.com</p>
@@ -152,36 +157,66 @@
     <p>LinkedIn: <a href="https://www.linkedin.com/in/yashtripathi-dev/" target="_blank">Yash on Linkedin</a></p>
   </section>
 
-  <!-- Footer section -->
   <footer>
     &copy; 2025 Yash Tripathi. All rights reserved.
   </footer>
 
   <script>
-    // Select all sections for animation
+    // Fade-in sections
     const sections = document.querySelectorAll("section");
-
-    // Set the threshold for intersection observer
-    const options = {
-      threshold: 0.1
-    };
-
-    // Create intersection observer to animate sections when they come into view
-    const observer = new IntersectionObserver(function (entries, observer) {
+    const options = { threshold: 0.1 };
+    const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
         entry.target.style.opacity = 1;
         entry.target.style.transform = "translateY(0)";
-        observer.unobserve(entry.target); // Stop observing once it's visible
+        obs.unobserve(entry.target);
       });
     }, options);
-
-    // Apply animation effect to each section
     sections.forEach(section => {
-      section.style.opacity = 0; // Hide initially
-      section.style.transform = "translateY(40px)"; // Slide-up effect
-      observer.observe(section); // Start observing
+      section.style.opacity = 0;
+      section.style.transform = "translateY(40px)";
+      observer.observe(section);
     });
+
+    // Water ripple effect on mouse move using canvas
+    const canvas = document.querySelector('.ripple-canvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let ripples = [];
+
+    function resizeCanvas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    window.addEventListener('mousemove', e => {
+      ripples.push({
+        x: e.clientX,
+        y: e.clientY,
+        radius: 0,
+        alpha: 1
+      });
+    });
+
+    function animateRipples() {
+      ctx.clearRect(0, 0, width, height);
+      ripples.forEach((ripple, index) => {
+        ctx.beginPath();
+        ctx.arc(ripple.x, ripple.y, ripple.radius, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(0, 133, 255, ${ripple.alpha})`;
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+        ripple.radius += 2;
+        ripple.alpha -= 0.015;
+        if (ripple.alpha <= 0) ripples.splice(index, 1);
+      });
+      requestAnimationFrame(animateRipples);
+    }
+
+    animateRipples();
   </script>
 </body>
 </html>
