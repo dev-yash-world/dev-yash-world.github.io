@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://yashtripathi.in/sitemap.xml

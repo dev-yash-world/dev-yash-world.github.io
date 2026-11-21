@@ -1,25 +1,53 @@
-<h1 align="center">Hi 👋, I'm Yash Tripathi</h1>
-<h3 align="center">A passionate full stack developer from India</h3>
+# yashtripathi.in
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=dev-yash-world&label=Profile%20views&color=0e75b6&style=flat" alt="dev-yash-world" /> </p>
+Personal portfolio of Yash Tripathi. Plain static site (HTML + CSS, no build step), hosted free on GitHub Pages with the custom domain `yashtripathi.in`.
 
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=dev-yash-world" alt="dev-yash-world" /></a> </p>
+## Files
 
-- 🔭 I’m currently working on [Paani](https://teamsproject.teamcomputers.com/paani-uat)
+| File | Purpose |
+|---|---|
+| `index.html` | The whole site |
+| `favicon.svg` | Browser tab icon |
+| `CNAME` | Tells GitHub Pages to serve the site on `yashtripathi.in` |
+| `.nojekyll` | Stops GitHub from running Jekyll (this is what printed raw `---` front matter on the old site) |
+| `robots.txt`, `sitemap.xml` | Search engine basics |
 
-- 🌱 I’m currently learning **Cloud**
+## One-time setup
 
-- 👯 I’m looking to collaborate on **ReactJs + Nodejs**
+1. Create a public repo on GitHub, for example `yashtripathi.in` or `<username>.github.io`.
+2. Push these files:
+   ```bash
+   git init
+   git add .
+   git commit -m "New portfolio"
+   git branch -M main
+   git remote add origin https://github.com/<username>/<repo>.git
+   git push -u origin main
+   ```
+3. In the repo: **Settings > Pages > Build and deployment**, Source = *Deploy from a branch*, Branch = `main`, folder `/ (root)`.
+4. Same page, **Custom domain** = `yashtripathi.in`, save. Tick **Enforce HTTPS** once the certificate is ready (can take up to an hour).
+5. At your domain registrar, set DNS:
 
-- 🤝 I’m looking for help with **MERN**
+   | Type | Host | Value |
+   |---|---|---|
+   | A | @ | 185.199.108.153 |
+   | A | @ | 185.199.109.153 |
+   | A | @ | 185.199.110.153 |
+   | A | @ | 185.199.111.153 |
+   | CNAME | www | `<username>.github.io` |
 
-- 💬 Ask me about **react**
+   Remove any old A/CNAME records that point to your current host.
+6. Optional but recommended: **Settings > Pages > Verify domain** so nobody else can claim it.
 
-- 📫 How to reach me **yashtripathi.in@gmail.com**
+## Updating the site
 
-<h3 align="left">Connect with me:</h3>
-<p align="left">
-</p>
+Edit `index.html`, commit, push. GitHub Pages redeploys in about a minute.
 
-<h3 align="left">Languages and Tools:</h3>
-<p align="left"> <a href="https://getbootstrap.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" alt="bootstrap" width="40" height="40"/> </a> <a href="https://www.cprogramming.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" alt="c" width="40" height="40"/> </a> <a href="https://www.w3schools.com/cpp/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" alt="cplusplus" width="40" height="40"/> </a> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://expressjs.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="express" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://laravel.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/laravel/laravel-plain-wordmark.svg" alt="laravel" width="40" height="40"/> </a> <a href="https://www.linux.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="40" height="40"/> </a> <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/> </a> <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a> <a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a> <a href="https://www.php.net" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" alt="php" width="40" height="40"/> </a> <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/> </a> </p>
+To add a project, copy one `<li>` inside the right `<ul class="stops">` block in the Work section. To show it on the map too, add a `<circle class="st">` and `<text>` on that line's path in the hero SVG.
+
+## Preview locally
+
+```bash
+python3 -m http.server 8000
+# open http://localhost:8000
+```
